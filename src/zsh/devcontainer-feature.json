@@ -1,8 +1,8 @@
 {
   "name": "Dan's oh-my-zsh config",
   "id": "zsh",
-  "version": "1.0.0",
-  "description": "Sets up Dan's oh-my-zsh config",
+  "version": "1.0.1",
+  "description": "Sets up zsh as default shell with [Dan's oh-my-zsh config](https://github.com/dstockhammer/zsh).",
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils"
   ]
