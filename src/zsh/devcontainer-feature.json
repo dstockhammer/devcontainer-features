@@ -1,8 +1,15 @@
 {
   "name": "Dan's oh-my-zsh config",
   "id": "zsh",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Sets up zsh as default shell with [Dan's oh-my-zsh config](https://github.com/dstockhammer/zsh).",
+  "options": {
+    "failOnError": {
+      "type": "boolean",
+      "description": "Whether to fail the container build if the feature fails to install.",
+      "default": false
+    }
+  },
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils"
   ]
