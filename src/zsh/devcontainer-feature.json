@@ -1,0 +1,9 @@
+{
+  "name": "Dan's oh-my-zsh config",
+  "id": "zsh",
+  "version": "1.0.0",
+  "description": "Sets up Dan's oh-my-zsh config",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
