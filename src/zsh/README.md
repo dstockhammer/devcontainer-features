@@ -16,6 +16,7 @@ Sets up zsh as default shell with [Dan's oh-my-zsh config](https://github.com/ds
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | failOnError | Whether to fail the container build if the feature fails to install. | boolean | false |
+| zshHistory | The location of the .zsh_history file. Leave empty for default. | string | - |
 
 
 
