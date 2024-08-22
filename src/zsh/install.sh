@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+FAILONERROR=${FAILONERROR:-false}
+
 if [ "$FAILONERROR" = "true" ]; then
   exit_code=1
 else

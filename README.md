@@ -4,4 +4,5 @@ My collection of [dev container features](https://containers.dev/implementors/fe
 
 ## Features
 
+- [Helmfile (helmfile)](./src/helmfile/)
 - [Dan's oh-my-zsh config (zsh)](./src/zsh/)

@@ -1,0 +1,22 @@
+{
+  "name": "Helmfile",
+  "id": "helmfile",
+  "version": "1.0.0",
+  "description": "Installs [Helmfile](https://github.com/helmfile/helmfile).",
+  "options": {
+    "failOnError": {
+      "type": "boolean",
+      "description": "Whether to fail the container build if the feature fails to install.",
+      "default": false
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of Helmfile to install.",
+      "default": "latest"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils",
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube"
+  ]
+}
