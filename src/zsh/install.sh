@@ -3,6 +3,9 @@ set -e
 
 FAILONERROR=${FAILONERROR:-false}
 
+# hard coded for now. make configurable if necessary.
+ZSH_VOLUME_DIR=/var/zsh
+
 if [ "$FAILONERROR" = "true" ]; then
   exit_code=1
 else
@@ -39,8 +42,10 @@ rm -rf $_REMOTE_USER_HOME/.zshrc
 if [ ! -z "$ZSHHISTORY" ]; then
   echo "export HISTFILE=\"$ZSHHISTORY\"" > $_REMOTE_USER_HOME/.zshrc
 else
-  echo "export HISTFILE=\"/var/zsh/.zsh_history\"" > $_REMOTE_USER_HOME/.zshrc
+  echo "export HISTFILE=\"$ZSH_VOLUME_DIR/.zsh_history\"" > $_REMOTE_USER_HOME/.zshrc
 fi
+
+chown -R $_REMOTE_USER:$_REMOTE_USER $ZSH_VOLUME_DIR
 
 echo 'source $HOME/zsh/.zshrc' >> $_REMOTE_USER_HOME/.zshrc
 sudo chsh -s $(which zsh) $_REMOTE_USER
