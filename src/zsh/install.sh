@@ -36,14 +36,19 @@ if ! git clone --recurse-submodules https://github.com/dstockhammer/zsh.git $ins
   exit $exit_code
 fi
 
-# delete the existing file to start with our fresh config
-rm -rf $_REMOTE_USER_HOME/.zshrc
+mkdir -p $ZSH_VOLUME_DIR
+chown -R $_REMOTE_USER:$_REMOTE_USER $ZSH_VOLUME_DIR
 
-if [ ! -z "$ZSHHISTORY" ]; then
-  echo "export HISTFILE=\"$ZSHHISTORY\"" > $_REMOTE_USER_HOME/.zshrc
+if [ ! -z $ZSHHISTORY ]; then
+  HISTFILE="$ZSHHISTORY"
 else
-  echo "export HISTFILE=\"$ZSH_VOLUME_DIR/.zsh_history\"" > $_REMOTE_USER_HOME/.zshrc
+  HISTFILE="$ZSH_VOLUME_DIR/.zsh_history"
 fi
 
-echo 'source $HOME/zsh/.zshrc' >> $_REMOTE_USER_HOME/.zshrc
+cat > $_REMOTE_USER_HOME/.zshrc \
+<< EOF
+export HISTFILE="$HISTFILE"
+source \$HOME/zsh/.zshrc
+EOF
+
 sudo chsh -s $(which zsh) $_REMOTE_USER
