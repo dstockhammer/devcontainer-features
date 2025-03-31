@@ -45,7 +45,5 @@ else
   echo "export HISTFILE=\"$ZSH_VOLUME_DIR/.zsh_history\"" > $_REMOTE_USER_HOME/.zshrc
 fi
 
-chown -R $_REMOTE_USER:$_REMOTE_USER $ZSH_VOLUME_DIR
-
 echo 'source $HOME/zsh/.zshrc' >> $_REMOTE_USER_HOME/.zshrc
 sudo chsh -s $(which zsh) $_REMOTE_USER
