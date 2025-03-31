@@ -38,6 +38,8 @@ rm -rf $_REMOTE_USER_HOME/.zshrc
 
 if [ ! -z "$ZSHHISTORY" ]; then
   echo "export HISTFILE=\"$ZSHHISTORY\"" > $_REMOTE_USER_HOME/.zshrc
+else
+  echo "export HISTFILE=\"/var/zsh/.zsh_history\"" > $_REMOTE_USER_HOME/.zshrc
 fi
 
 echo 'source $HOME/zsh/.zshrc' >> $_REMOTE_USER_HOME/.zshrc

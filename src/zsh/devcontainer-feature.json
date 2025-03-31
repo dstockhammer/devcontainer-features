@@ -1,7 +1,7 @@
 {
   "name": "Dan's oh-my-zsh config",
   "id": "zsh",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Sets up zsh as default shell with [Dan's oh-my-zsh config](https://github.com/dstockhammer/zsh).",
   "options": {
     "failOnError": {
@@ -11,10 +11,15 @@
     },
     "zshHistory": {
       "type": "string",
-      "description": "The location of the .zsh_history file. Leave empty for default.",
+      "description": "The location of the .zsh_history file. Leave empty for default in Docker volume.",
       "default": ""
     }
   },
+  "mounts": [{
+    "source": "zsh",
+    "target": "/var/zsh",
+    "type": "volume"
+  }],
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils"
   ]
