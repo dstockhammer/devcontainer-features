@@ -5,15 +5,16 @@
       "settings": {
         "json.schemas": [
           {
-            "fileMatch": [
-              "*/devcontainer-feature.json"
-            ],
+            "fileMatch": ["*/devcontainer-feature.json"],
             "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
           }
         ]
       },
       "extensions": [
-        "mads-hartmann.bash-ide-vscode"
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions",
+        "mads-hartmann.bash-ide-vscode",
+        "streetsidesoftware.code-spell-checker"
       ]
     }
   },

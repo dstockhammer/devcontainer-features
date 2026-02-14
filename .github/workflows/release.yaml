@@ -11,17 +11,15 @@ jobs:
       pull-requests: write
       packages: write
     steps:
-      - uses: actions/checkout@v4
-
-      - name: "Publish Features"
+      - uses: actions/checkout@v6
+      - name: Publish Features
         uses: devcontainers/action@v1
         with:
           publish-features: "true"
-          base-path-to-features: "./src" 
+          base-path-to-features: "./src"
           generate-docs: "true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create PR for Documentation
         id: push_image_info
         env:

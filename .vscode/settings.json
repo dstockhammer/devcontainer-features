@@ -1,7 +1,5 @@
 {
-  "cSpell.words": [
-    "devcontainers",
-    "helmfile"
-  ],
-  "editor.formatOnSave": true
+  "cSpell.words": ["devcontainers", "helmfile"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
