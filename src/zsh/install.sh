@@ -52,7 +52,7 @@ else
   HISTFILE="$ZSH_VOLUME_DIR/.zsh_history"
 fi
 
-cat $_REMOTE_USER_HOME/.zshenv \
+cat > $_REMOTE_USER_HOME/.zshenv \
 << EOF
 export HISTFILE="$HISTFILE"
 export ANTIDOTE_DIR="$antidote_dir"
