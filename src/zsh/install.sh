@@ -60,4 +60,7 @@ export ZDOTDIR="$INSTALL_DIR"
 [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
 EOF
 
+# Make sure to remove the existing .zshrc if it exists!
+rm -rf $_REMOTE_USER_HOME/.zshrc
+
 sudo chsh -s $(which zsh) $_REMOTE_USER
