@@ -28,23 +28,23 @@ if [ -z $_REMOTE_USER_HOME ]; then
   _REMOTE_USER_HOME=/home/$_REMOTE_USER
 fi
 
-install_dir="$_REMOTE_USER_HOME/.config/zsh"
-echo "Installing feature 'dstockhammer/zsh' to $install_dir"
-if ! git clone --depth=1 https://github.com/dstockhammer/zsh.git $install_dir; then
+INSTALL_DIR="$_REMOTE_USER_HOME/.config/zsh"
+echo "Installing feature 'dstockhammer/zsh' to $INSTALL_DIR"
+if ! git clone --depth=1 https://github.com/dstockhammer/zsh.git $INSTALL_DIR; then
   echo "Failed to activate feature 'dstockhammer/zsh':"
   echo "Unable to clone https://github.com/dstockhammer/zsh.git"
   exit $exit_code
 fi
 
-antidote_dir="$_REMOTE_USER_HOME/.antidote"
-if ! git clone --depth=1 https://github.com/mattmc3/antidote.git $antidote_dir; then
+ANTIDOTE_DIR="$_REMOTE_USER_HOME/.antidote"
+if ! git clone --depth=1 https://github.com/mattmc3/antidote.git $ANTIDOTE_DIR; then
   echo "Failed to activate feature 'dstockhammer/zsh':"
   echo "Unable to clone https://github.com/mattmc3/antidote.git"
   exit $exit_code
 fi
 
 mkdir -p $ZSH_VOLUME_DIR
-chown -R $_REMOTE_USER:$_REMOTE_USER $ZSH_VOLUME_DIR
+chown -R $_REMOTE_USER:$_REMOTE_USER $ZSH_VOLUME_DIR $INSTALL_DIR $ANTIDOTE_DIR
 
 if [ ! -z $ZSHHISTORY ]; then
   HISTFILE="$ZSHHISTORY"
@@ -55,8 +55,8 @@ fi
 cat > $_REMOTE_USER_HOME/.zshenv \
 << EOF
 export HISTFILE="$HISTFILE"
-export ANTIDOTE_DIR="$antidote_dir"
-export ZDOTDIR="$install_dir"
+export ANTIDOTE_DIR="$ANTIDOTE_DIR"
+export ZDOTDIR="$INSTALL_DIR"
 [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
 EOF
 

@@ -1,7 +1,7 @@
 {
   "name": "Dan's zsh config",
   "id": "zsh",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Sets up zsh as default shell with [Dan's zsh config](https://github.com/dstockhammer/zsh).",
   "options": {
     "failOnError": {
