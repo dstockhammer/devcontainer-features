@@ -1,8 +1,8 @@
 {
-  "name": "Dan's oh-my-zsh config",
+  "name": "Dan's zsh config",
   "id": "zsh",
-  "version": "1.3.3",
-  "description": "Sets up zsh as default shell with [Dan's oh-my-zsh config](https://github.com/dstockhammer/zsh).",
+  "version": "1.4.0",
+  "description": "Sets up zsh as default shell with [Dan's zsh config](https://github.com/dstockhammer/zsh).",
   "options": {
     "failOnError": {
       "type": "boolean",
@@ -15,12 +15,19 @@
       "default": ""
     }
   },
-  "mounts": [{
-    "source": "zsh",
-    "target": "/var/zsh",
-    "type": "volume"
-  }],
-  "installsAfter": [
-    "ghcr.io/devcontainers/features/common-utils"
-  ]
+  "mounts": [
+    {
+      "source": "zsh",
+      "target": "/var/zsh",
+      "type": "volume"
+    }
+  ],
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": false,
+      "installOhMyZshConfig": false
+    },
+    "ghcr.io/devcontainers-extra/features/starship:1": {}
+  }
 }

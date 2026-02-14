@@ -1,7 +1,7 @@
 
-# Dan's oh-my-zsh config (zsh)
+# Dan's zsh config (zsh)
 
-Sets up zsh as default shell with [Dan's oh-my-zsh config](https://github.com/dstockhammer/zsh).
+Sets up zsh as default shell with [Dan's zsh config](https://github.com/dstockhammer/zsh).
 
 ## Example Usage
 

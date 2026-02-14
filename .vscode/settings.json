@@ -1,6 +1,7 @@
 {
-    "cSpell.words": [
-        "devcontainers",
-        "helmfile"
-    ]
+  "cSpell.words": [
+    "devcontainers",
+    "helmfile"
+  ],
+  "editor.formatOnSave": true
 }

@@ -28,11 +28,18 @@ if [ -z $_REMOTE_USER_HOME ]; then
   _REMOTE_USER_HOME=/home/$_REMOTE_USER
 fi
 
-install_dir="$_REMOTE_USER_HOME/zsh"
+install_dir="$_REMOTE_USER_HOME/.config/zsh"
 echo "Installing feature 'dstockhammer/zsh' to $install_dir"
-if ! git clone --recurse-submodules https://github.com/dstockhammer/zsh.git $install_dir; then
+if ! git clone --depth=1 https://github.com/dstockhammer/zsh.git $install_dir; then
   echo "Failed to activate feature 'dstockhammer/zsh':"
   echo "Unable to clone https://github.com/dstockhammer/zsh.git"
+  exit $exit_code
+fi
+
+antidote_dir="$_REMOTE_USER_HOME/.antidote"
+if ! git clone --depth=1 https://github.com/mattmc3/antidote.git $antidote_dir; then
+  echo "Failed to activate feature 'dstockhammer/zsh':"
+  echo "Unable to clone https://github.com/mattmc3/antidote.git"
   exit $exit_code
 fi
 
@@ -45,10 +52,12 @@ else
   HISTFILE="$ZSH_VOLUME_DIR/.zsh_history"
 fi
 
-cat > $_REMOTE_USER_HOME/.zshrc \
+cat $_REMOTE_USER_HOME/.zshenv \
 << EOF
 export HISTFILE="$HISTFILE"
-source \$HOME/zsh/.zshrc
+export ANTIDOTE_DIR="$antidote_dir"
+export ZDOTDIR="$install_dir"
+[[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
 EOF
 
 sudo chsh -s $(which zsh) $_REMOTE_USER
