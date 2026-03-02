@@ -55,6 +55,7 @@ fi
 cat > $_REMOTE_USER_HOME/.zshenv \
 << EOF
 export HISTFILE="$HISTFILE"
+export OVERRIDE_HISTFILE="$HISTFILE"
 export ANTIDOTE_DIR="$ANTIDOTE_DIR"
 export ZDOTDIR="$INSTALL_DIR"
 [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
