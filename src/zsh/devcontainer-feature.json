@@ -1,7 +1,7 @@
 {
   "name": "Dan's zsh config",
   "id": "zsh",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Sets up zsh as default shell with [Dan's zsh config](https://github.com/dstockhammer/zsh).",
   "options": {
     "failOnError": {
@@ -26,7 +26,8 @@
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
       "installOhMyZsh": false,
-      "installOhMyZshConfig": false
+      "installOhMyZshConfig": false,
+      "configureZshAsDefaultShell": true
     },
     "ghcr.io/devcontainers-extra/features/starship:1": {}
   }
