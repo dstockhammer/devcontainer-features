@@ -12,7 +12,7 @@ else
   exit_code=0
 fi
 
-required_commands="zsh git"
+required_commands="zsh git curl"
 for command in $required_commands; do
   if ! type "$command" > /dev/null 2>&1; then
     echo "Failed to activate feature 'dstockhammer/zsh':"
@@ -40,6 +40,14 @@ ANTIDOTE_DIR="$_REMOTE_USER_HOME/.antidote"
 if ! git clone --depth=1 https://github.com/mattmc3/antidote.git $ANTIDOTE_DIR; then
   echo "Failed to activate feature 'dstockhammer/zsh':"
   echo "Unable to clone https://github.com/mattmc3/antidote.git"
+  exit $exit_code
+fi
+
+STARSHIP_VERSION=${STARSHIPVERSION:-latest}
+echo "Installing starship ($STARSHIP_VERSION)"
+if ! curl -fsSL https://starship.rs/install.sh | sh -s -- -y -b /usr/local/bin -v "$STARSHIP_VERSION"; then
+  echo "Failed to activate feature 'dstockhammer/zsh':"
+  echo "Unable to install starship"
   exit $exit_code
 fi
 
